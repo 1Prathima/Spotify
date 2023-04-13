@@ -115,6 +115,12 @@ public class SpotifyRepository {
                 List<User> listeners = new ArrayList<>();
                 listeners.add(user);
                 playlistListenerMap.put(playlist, listeners);
+                List<Playlist> playlists = userPlaylistMap.get(user);
+                if(playlists == null){
+                    playlists = new ArrayList<>();
+                }
+                playlists.add(playlist);
+                userPlaylistMap.put(user, playlists);
             }
         }
         if(userFound == false){
@@ -143,6 +149,12 @@ public class SpotifyRepository {
                 List<User> listeners = new ArrayList<>();
                 listeners.add(user);   //user is the listener
                 playlistListenerMap.put(playlist, listeners);
+                List<Playlist> playlists = userPlaylistMap.get(user);
+                if(playlists == null){
+                    playlists = new ArrayList<>();
+                }
+                playlists.add(playlist);
+                userPlaylistMap.put(user, playlists);
             }
         }
         if(userFound == false){
