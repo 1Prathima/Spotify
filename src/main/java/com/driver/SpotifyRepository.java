@@ -281,6 +281,7 @@ public class SpotifyRepository {
                                 if(albums.contains(album)){
                                     artist = entry.getKey();
                                     artist.setLikes(artist.getLikes()+1);
+                                    artists.add(artist);
                                     break;
                                 }
                             }
