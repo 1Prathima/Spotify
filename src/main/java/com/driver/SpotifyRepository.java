@@ -257,13 +257,12 @@ public class SpotifyRepository {
                     if(song.getTitle().equals(songTitle)){
                         songFound = true;
                         List<User> songLikedByUsers = songLikeMap.get(song);
-                        if(songLikedByUsers.contains(user)){
+                        if(songLikedByUsers!=null && songLikedByUsers.contains(user)){
                             return song;
                         }
-                        if(!songLikedByUsers.contains(user)){
-                            if(songLikedByUsers == null){
-                                songLikedByUsers = new ArrayList<>();
-                            }
+                        if(songLikedByUsers == null){
+                            songLikedByUsers = new ArrayList<>();
+                        }
                             songLikedByUsers.add(user);
                             songLikeMap.put(song, songLikedByUsers);
                             song.setLikes(song.getLikes()+1);
@@ -287,7 +286,6 @@ public class SpotifyRepository {
                             }
                         }
                     }
-                }
                 if(songFound == false){
                     throw new Exception("Song does not exist");
                 }
